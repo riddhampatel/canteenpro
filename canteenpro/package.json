@@ -1,0 +1,36 @@
+{
+  "name": "canteenpro",
+  "private": true,
+  "version": "1.0.0",
+  "description": "CanteenPro — SaaS canteen management system (API, owner console, super-admin, website, mobile)",
+  "workspaces": [
+    "apps/api",
+    "apps/console",
+    "apps/superadmin",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev -w apps/api",
+    "dev:console": "npm run dev -w apps/console",
+    "dev:superadmin": "npm run dev -w apps/superadmin",
+    "dev:web": "npm run dev -w apps/web",
+    "dev": "concurrently -n api,console,admin,web -c blue,green,magenta,cyan \"npm:dev:api\" \"npm:dev:console\" \"npm:dev:superadmin\" \"npm:dev:web\"",
+    "db:generate": "npm run db:generate -w apps/api",
+    "db:migrate": "npm run db:migrate -w apps/api",
+    "db:deploy": "npm run db:deploy -w apps/api",
+    "db:seed": "npm run db:seed -w apps/api",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "allowScripts": {
+    "esbuild@0.15.18": true,
+    "esbuild@0.28.2": true
+  }
+}

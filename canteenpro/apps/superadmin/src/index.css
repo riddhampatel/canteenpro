@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+html, body, #root { height: 100%; }
+body { @apply bg-[#f5f7fb] text-ink antialiased; }
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; }
+  .print-area { box-shadow: none !important; border: 0 !important; }
+}
+
+.prose-preview h1 { @apply mb-3 text-2xl font-extrabold; }
+.prose-preview h2 { @apply mb-2 mt-6 text-xl font-bold; }
+.prose-preview h3 { @apply mb-2 mt-4 text-lg font-bold; }
+.prose-preview p { @apply mb-3; }
+.prose-preview ul { @apply mb-3 list-disc pl-6; }
+.prose-preview ol { @apply mb-3 list-decimal pl-6; }
+.prose-preview a { @apply text-brand-700 underline; }
